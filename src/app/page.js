@@ -87,9 +87,7 @@ export default function DataAnalyticsLanding() {
             >
               Testimonials
             </Link>
-            <button className="px-6 py-2 bg-blue-500 hover:bg-blue-600 rounded-lg transition-all transform hover:scale-105">
-              Sign In
-            </button>
+            
           </div>
         </div>
       </nav>
