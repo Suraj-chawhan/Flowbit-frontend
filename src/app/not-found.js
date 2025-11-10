@@ -1,11 +1,13 @@
-import React from 'react';
-import { FileText, Home, ArrowLeft, BookOpen, AlertCircle } from 'lucide-react';
+"use client";
+import React from "react";
+import Link from "next/link";
+import { FileText, Home, ArrowLeft, BookOpen, AlertCircle } from "lucide-react";
 
 export default function NotFound() {
   const suggestions = [
     { icon: <Home className="w-5 h-5" />, text: "Go Home", href: "/" },
     { icon: <BookOpen className="w-5 h-5" />, text: "Browse Templates", href: "/dashboard" },
-    { icon: <FileText className="w-5 h-5" />, text: "Create Assignment", href: "/editor" }
+    { icon: <FileText className="w-5 h-5" />, text: "Create Assignment", href: "/editor" },
   ];
 
   return (
@@ -13,12 +15,12 @@ export default function NotFound() {
       {/* Navigation */}
       <nav className="w-full px-4 py-6 sm:px-6 lg:px-8 bg-gradient-to-r from-white/90 via-blue-50/80 to-purple-50/80 backdrop-blur-sm border-b border-slate-200/50">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <a href="/" className="flex items-center space-x-2">
+          <Link href="/" className="flex items-center space-x-2">
             <div className="w-9 h-9 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl flex items-center justify-center shadow-lg">
               <FileText className="w-5 h-5 text-white" />
             </div>
             <span className="text-xl font-bold text-slate-800">AssignmentAI</span>
-          </a>
+          </Link>
           <div className="flex items-center space-x-4">
             <button className="text-slate-600 hover:text-slate-800 px-4 py-2 rounded-lg transition-colors font-medium">
               Login
@@ -42,63 +44,63 @@ export default function NotFound() {
             <div className="absolute -bottom-2 -left-6 w-6 h-6 bg-gradient-to-r from-emerald-400 to-teal-500 rounded-full animate-pulse opacity-50"></div>
           </div>
 
-          {/* Error Message */}
           <h1 className="text-6xl sm:text-7xl lg:text-8xl font-bold text-slate-900 mb-6 leading-tight">
             4
             <span className="bg-gradient-to-r from-red-500 to-orange-500 bg-clip-text text-transparent">0</span>
             4
           </h1>
-          
           <h2 className="text-3xl sm:text-4xl font-bold text-slate-800 mb-6">
             Oops! Page Not Found
           </h2>
-          
           <p className="text-xl text-slate-600 mb-12 max-w-2xl mx-auto leading-relaxed font-medium">
-            The page you're looking for seems to have vanished into the digital void. 
-            Don't worry though - we'll help you get back on track!
+            The page you&apos;re looking for seems to have vanished into the digital void.
+            Don&apos;t worry though - we&apos;ll help you get back on track!
           </p>
 
-          {/* Action Buttons */}
           <div className="max-w-3xl mx-auto mb-16">
             <div className="bg-gradient-to-br from-white/80 via-blue-50/60 to-purple-50/60 backdrop-blur-md rounded-3xl p-10 shadow-2xl border border-slate-200/50">
-              <h3 className="text-2xl font-bold text-slate-900 mb-8">Where would you like to go?</h3>
-              
+              <h3 className="text-2xl font-bold text-slate-900 mb-8">
+                Where would you like to go?
+              </h3>
+
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                {suggestions.map((suggestion, index) => (
-                  <a
-                    key={index}
-                    href={suggestion.href}
+                {suggestions.map((s, i) => (
+                  <Link
+                    key={i}
+                    href={s.href}
                     className="group bg-gradient-to-br from-white/90 via-blue-50/50 to-purple-50/40 hover:from-blue-50/80 hover:via-purple-50/60 hover:to-indigo-50/50 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-slate-100 text-center"
                   >
                     <div className="mb-4 p-3 bg-gradient-to-br from-slate-50 to-blue-50/80 rounded-xl w-fit mx-auto shadow-sm group-hover:scale-110 transition-transform duration-200">
-                      {suggestion.icon}
+                      {s.icon}
                     </div>
                     <span className="text-slate-700 group-hover:text-slate-900 font-medium transition-colors">
-                      {suggestion.text}
+                      {s.text}
                     </span>
-                  </a>
+                  </Link>
                 ))}
               </div>
 
               <div className="mt-8 pt-8 border-t border-slate-200/50">
-                <a
+                <Link
                   href="/"
                   className="inline-flex items-center bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 rounded-xl transition-all duration-200 hover:scale-105 shadow-lg font-bold text-lg"
                 >
                   <ArrowLeft className="w-5 h-5 mr-3" />
                   Take Me Home
-                </a>
+                </Link>
               </div>
             </div>
           </div>
 
-          {/* Support Message */}
           <div className="mt-16 p-6 bg-gradient-to-r from-blue-50/80 via-purple-50/60 to-indigo-50/70 rounded-2xl border border-blue-200/50 max-w-2xl mx-auto">
             <p className="text-slate-700 font-medium">
-              Still can't find what you're looking for? 
-              <a href="/contact" className="text-blue-600 hover:text-blue-700 font-bold ml-2 underline decoration-blue-200 hover:decoration-blue-300 underline-offset-2">
+              Still can&apos;t find what you&apos;re looking for?
+              <Link
+                href="/contact"
+                className="text-blue-600 hover:text-blue-700 font-bold ml-2 underline decoration-blue-200 hover:decoration-blue-300 underline-offset-2"
+              >
                 Contact our support team
-              </a>
+              </Link>
             </p>
           </div>
         </div>
@@ -108,28 +110,26 @@ export default function NotFound() {
       <footer className="bg-gradient-to-r from-white/90 via-blue-50/60 to-purple-50/60 backdrop-blur-sm border-t border-slate-200/50 px-4 py-12 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col md:flex-row items-center justify-between">
-            <a href="/" className="flex items-center space-x-2 mb-6 md:mb-0">
+            <Link href="/" className="flex items-center space-x-2 mb-6 md:mb-0">
               <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl flex items-center justify-center shadow-lg">
                 <FileText className="w-4 h-4 text-white" />
               </div>
               <span className="font-bold text-slate-900 text-lg">AssignmentAI</span>
-            </a>
+            </Link>
             <div className="flex items-center space-x-8">
-              <a href="/about" className="text-slate-600 hover:text-slate-900 transition-colors font-medium">
+              <Link href="/about" className="text-slate-600 hover:text-slate-900 transition-colors font-medium">
                 About
-              </a>
-              <a href="/contact" className="text-slate-600 hover:text-slate-900 transition-colors font-medium">
+              </Link>
+              <Link href="/contact" className="text-slate-600 hover:text-slate-900 transition-colors font-medium">
                 Contact
-              </a>
-              <a href="/privacy" className="text-slate-600 hover:text-slate-900 transition-colors font-medium">
+              </Link>
+              <Link href="/privacy" className="text-slate-600 hover:text-slate-900 transition-colors font-medium">
                 Privacy
-              </a>
+              </Link>
             </div>
           </div>
           <div className="mt-8 pt-8 border-t border-slate-200/50 text-center">
-            <p className="text-slate-500 font-medium">
-              © 2025 AssignmentAI. All rights reserved.
-            </p>
+            <p className="text-slate-500 font-medium">© 2025 AssignmentAI. All rights reserved.</p>
           </div>
         </div>
       </footer>
